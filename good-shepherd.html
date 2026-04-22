@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good Shepherd Computers | Fast, Reliable Computer Repair</title>
+    <meta name="description"
+        content=" Expert computer repair and IT services. Same-day service available. Transparent pricing and 100% satisfaction guarantee. Get your free diagnosis today!">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#0066cc',
+                        secondary: '#22c55e',
+                        secondaryHover: '#16a34a',
+                        accent: '#dc2626',
+                        dark: '#111827',
+                        light: '#f3f4f6',
+                        warning: '#f59e0b'
+                    },
+                    boxShadow: {
+                        'cta': '0 4px 14px 0 rgba(34, 197, 94, 0.39)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Styles & Animations */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .page-section {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .faq-answer.open {
+            max-height: 500px;
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800 antialiased pt-20">
+
+    <header class="glass-nav fixed top-0 w-full z-50 border-b border-gray-100 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="navigate('home')">
+                    <i class="fa-solid fa-shield-halved text-primary text-3xl mr-2"></i>
+                    <span class="font-heading font-bold text-2xl text-dark">Good Shepherd</span>
+                </div>
+
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="#" onclick="navigate('services')"
+                        class="text-gray-600 hover:text-primary font-medium transition">Services</a>
+                    <a href="#" onclick="navigate('about')"
+                        class="text-gray-600 hover:text-primary font-medium transition">About</a>
+                    <a href="#" onclick="navigate('pricing')"
+                        class="text-gray-600 hover:text-primary font-medium transition">Pricing</a>
+                    <a href="#" onclick="navigate('portfolio')"
+                        class="text-gray-600 hover:text-primary font-medium transition">Results</a>
+                    <a href="#" onclick="navigate('blog')"
+                        class="text-gray-600 hover:text-primary font-medium transition">Resources</a>
+                    <a href="#" onclick="navigate('contact')"
+                        class="text-gray-600 hover:text-primary font-medium transition mr-4">Contact</a>
+                    <button onclick="navigate('contact')"
+                        class="bg-secondary hover:bg-secondaryHover text-white px-6 py-2.5 rounded-full font-semibold shadow-cta transition transform hover:-translate-y-0.5">
+                        Get Free Diagnosis
+                    </button>
+                </nav>
+
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-primary focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#" onclick="navigate('home'); closeMobileMenu()"
+                    class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Home</a>
+                <a href="#" onclick="navigate('services'); closeMobileMenu()"
+                    class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Services</a>
+                <a href="#" onclick="navigate('about'); closeMobileMenu()"
+                    class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">About
+                    Us</a>
+                <a href="#" onclick="navigate('pricing'); closeMobileMenu()"
+                    class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Pricing</a>
+                <a href="#" onclick="navigate('portfolio'); closeMobileMenu()"
+                    class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Portfolio</a>
+                <a href="#" onclick="navigate('blog'); closeMobileMenu()"
+                    class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Blog</a>
+                <button onclick="navigate('contact'); closeMobileMenu()"
+                    class="w-full text-center mt-4 bg-secondary text-white px-6 py-3 rounded-md font-semibold shadow-cta">
+                    Get Free Diagnosis
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <section id="page-home" class="page-section active">
+            <div class="bg-gray-50 relative overflow-hidden">
+                <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-primary opacity-5 rounded-full blur-3xl">
+                </div>
+                <div
+                    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 relative z-10 flex flex-col lg:flex-row items-center">
+                    <div class="lg:w-1/2 lg:pr-12 text-center lg:text-left">
+                        <div
+                            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-primary text-sm font-semibold mb-6">
+                            <span class="relative flex h-3 w-3"><span
+                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span><span
+                                    class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span></span>
+                            Same-Day Service Available
+                        </div>
+                        <h1
+                            class="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold text-dark leading-tight mb-6">
+                            Get Your Computer Fixed Today
+                        </h1>
+                        <p class="text-lg md:text-xl text-gray-600 mb-8 font-light">
+                            Expert technicians. Transparent pricing. Get peace of mind with our 100% satisfaction
+                            guarantee.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10">
+                            <button onclick="navigate('contact')"
+                                class="bg-secondary hover:bg-secondaryHover text-white px-8 py-4 rounded-lg font-bold text-lg shadow-cta transition transform hover:-translate-y-1 flex justify-center items-center gap-2">
+                                <i class="fa-solid fa-bolt"></i> Get Free Diagnosis Now
+                            </button>
+                            <a href="tel:+254729975688"
+                                class="bg-white border-2 border-primary text-primary hover:bg-blue-50 px-8 py-4 rounded-lg font-bold text-lg transition flex justify-center items-center gap-2">
+                                <i class="fa-solid fa-phone"></i> +254 729 975 688
+                            </a>
+                        </div>
+                        <div
+                            class="flex items-center justify-center lg:justify-start gap-6 text-sm text-gray-500 font-medium">
+                            <div class="flex items-center gap-1"><i class="fa-solid fa-check-circle text-secondary"></i>
+                                24-Hour Service</div>
+                            <div class="flex items-center gap-1"><i class="fa-solid fa-check-circle text-secondary"></i>
+                                Certified Techs</div>
+                            <div class="flex items-center gap-1"><i class="fa-solid fa-star text-warning"></i> 5-Star
+                                Rated</div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2 mt-12 lg:mt-0">
+                        <img src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Professional Computer Repair Technician"
+                            class="rounded-2xl shadow-2xl border-4 border-white">
+                    </div>
+                </div>
+            </div>
+
+            <div class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <h2 class="text-3xl md:text-4xl font-heading font-bold text-dark mb-4">Is Your Computer Running
+                            Slow? We Fix It Fast.</h2>
+                        <p class="text-xl text-gray-600">Don't let tech issues disrupt your life or business. We solve
+                            the most frustrating computer problems daily.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-light p-8 rounded-xl hover:shadow-xl transition group relative overflow-hidden">
+                            <div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-5 transition"></div>
+                            <div
+                                class="w-14 h-14 bg-white rounded-lg shadow-sm flex items-center justify-center text-primary text-2xl mb-6">
+                                <i class="fa-solid fa-gauge-high"></i>
+                            </div>
+                            <h3 class="text-xl font-heading font-bold text-dark mb-3">Speed Optimization</h3>
+                            <ul class="text-gray-600 space-y-2 mb-6">
+                                <li>✓ Faster boot times</li>
+                                <li>✓ Lag-free performance</li>
+                                <li>✓ Application speedup</li>
+                            </ul>
+                            <div class="mt-auto">
+                                <p class="text-sm text-gray-500 mb-2">Starting at <strong class="text-dark">KES
+                                        2,000</strong>
+                                </p>
+                                <button onclick="navigate('services')"
+                                    class="text-primary font-semibold group-hover:underline">Learn More <i
+                                        class="fa-solid fa-arrow-right ml-1"></i></button>
+                            </div>
+                        </div>
+                        <div class="bg-light p-8 rounded-xl hover:shadow-xl transition group relative overflow-hidden">
+                            <div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-5 transition"></div>
+                            <div
+                                class="w-14 h-14 bg-white rounded-lg shadow-sm flex items-center justify-center text-primary text-2xl mb-6">
+                                <i class="fa-solid fa-bug-slash"></i>
+                            </div>
+                            <h3 class="text-xl font-heading font-bold text-dark mb-3">Virus & Malware Removal</h3>
+                            <ul class="text-gray-600 space-y-2 mb-6">
+                                <li>✓ Complete system scan</li>
+                                <li>✓ Ransomware protection</li>
+                                <li>✓ Secure your private data</li>
+                            </ul>
+                            <div class="mt-auto">
+                                <p class="text-sm text-gray-500 mb-2">Starting at <strong class="text-dark">KES
+                                        2,500</strong>
+                                </p>
+                                <button onclick="navigate('services')"
+                                    class="text-primary font-semibold group-hover:underline">Learn More <i
+                                        class="fa-solid fa-arrow-right ml-1"></i></button>
+                            </div>
+                        </div>
+                        <div class="bg-light p-8 rounded-xl hover:shadow-xl transition group relative overflow-hidden">
+                            <div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-5 transition"></div>
+                            <div
+                                class="w-14 h-14 bg-white rounded-lg shadow-sm flex items-center justify-center text-primary text-2xl mb-6">
+                                <i class="fa-solid fa-hard-drive"></i>
+                            </div>
+                            <h3 class="text-xl font-heading font-bold text-dark mb-3">Data Recovery</h3>
+                            <ul class="text-gray-600 space-y-2 mb-6">
+                                <li>✓ 99% success rate</li>
+                                <li>✓ Deleted file restoration</li>
+                                <li>✓ Failing drive extraction</li>
+                            </ul>
+                            <div class="mt-auto">
+                                <p class="text-sm text-gray-500 mb-2">Starting at <strong class="text-dark">KES
+                                        5,000</strong></p>
+                                <button onclick="navigate('services')"
+                                    class="text-primary font-semibold group-hover:underline">Learn More <i
+                                        class="fa-solid fa-arrow-right ml-1"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="py-16 bg-dark text-white text-center">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex justify-center mb-4 text-warning text-2xl">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <h2 class="text-3xl font-heading font-bold mb-8">Join 2,000+ Happy Customers</h2>
+                    <blockquote class="text-2xl font-light italic max-w-4xl mx-auto mb-8">
+                        "They saved my business when my laptop crashed and I lost everything. Good Shepherd recovered my
+                        files in 24 hours. I can't thank them enough."
+                    </blockquote>
+                    <p class="font-semibold text-lg">— Sarah Mitchell, Marketing Director</p>
+                </div>
+            </div>
+
+            <div class="py-20 bg-gray-50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                        <div>
+                            <div
+                                class="w-20 h-20 mx-auto bg-blue-100 rounded-full flex items-center justify-center text-primary text-3xl mb-6">
+                                ⚡
+                            </div>
+                            <h3 class="text-xl font-heading font-bold mb-3">SPEED</h3>
+                            <p class="text-gray-600">Most repairs same-day. The industry average is 5-7 days. We know
+                                you can't afford to wait.</p>
+                        </div>
+                        <div>
+                            <div
+                                class="w-20 h-20 mx-auto bg-green-100 rounded-full flex items-center justify-center text-secondary text-3xl mb-6">
+                                💰
+                            </div>
+                            <h3 class="text-xl font-heading font-bold mb-3">VALUE</h3>
+                            <p class="text-gray-600">Transparent, competitive pricing. Free diagnostic. Absolutely no
+                                hidden fees or surprise bills.</p>
+                        </div>
+                        <div>
+                            <div
+                                class="w-20 h-20 mx-auto bg-purple-100 rounded-full flex items-center justify-center text-purple-600 text-3xl mb-6">
+                                🛡️
+                            </div>
+                            <h3 class="text-xl font-heading font-bold mb-3">TRUST</h3>
+                            <p class="text-gray-600">Certified technicians. Fully insured. Backed by our 30-day warranty
+                                and 100% satisfaction guarantee.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="py-20 bg-primary text-white text-center">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-4xl font-heading font-bold mb-6">Ready to Fix Your Computer?</h2>
+                    <p class="text-xl mb-10 text-blue-100">Get your free, no-obligation diagnostic today. We'll have you
+                        back up and running fast.</p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <button onclick="navigate('contact')"
+                            class="bg-secondary hover:bg-secondaryHover text-white px-8 py-4 rounded-lg font-bold text-lg shadow-cta transition">
+                            Schedule Your Free Diagnostic
+                        </button>
+                        <a href="tel:+254729975688"
+                            class="bg-transparent border-2 border-white hover:bg-white hover:text-primary px-8 py-4 rounded-lg font-bold text-lg transition">
+                            Call Us Now
+                        </a>
+                    </div>
+                    <p class="mt-6 text-sm text-blue-200"><i class="fa-solid fa-shield-check"></i> Free quote • No
+                        hidden fees • 24-hour service</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-services" class="page-section hidden bg-gray-50 py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h1 class="text-4xl md:text-5xl font-heading font-bold text-dark mb-4">Computer Services Built for
+                        Results</h1>
+                    <p class="text-xl text-gray-600">From immediate repairs to custom enterprise builds – we've got you
+                        covered.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-8 flex flex-col h-full relative">
+                        <div
+                            class="absolute top-4 right-4 bg-yellow-100 text-yellow-800 text-xs font-bold px-2 py-1 rounded flex items-center">
+                            ⭐ 4.9/5 (247 Reviews)
+                        </div>
+                        <i class="fa-solid fa-laptop-medical text-4xl text-primary mb-4"></i>
+                        <h2 class="text-2xl font-heading font-bold text-dark mb-2">Computer Repair</h2>
+                        <p class="text-gray-600 mb-4 font-medium italic">Is your computer running slow or crashing?</p>
+                        <ul class="text-gray-600 space-y-2 mb-6 flex-grow">
+                            <li>✓ Hardware diagnostics</li>
+                            <li>✓ Screen & keyboard replacement</li>
+                            <li>✓ Motherboard repairs</li>
+                        </ul>
+                        <div class="border-t border-gray-100 pt-4 mb-4">
+                            <span class="text-sm text-gray-500">Starting at</span>
+                            <span class="text-2xl font-bold text-dark ml-2">KES 2,000</span>
+                        </div>
+                        <button onclick="navigate('contact')"
+                            class="w-full bg-secondary hover:bg-secondaryHover text-white py-3 rounded-lg font-bold transition">Get
+                            Instant Quote</button>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-8 flex flex-col h-full relative">
+                        <div
+                            class="absolute top-4 right-4 bg-yellow-100 text-yellow-800 text-xs font-bold px-2 py-1 rounded flex items-center">
+                            ⭐ 5.0/5 (182 Reviews)
+                        </div>
+                        <i class="fa-solid fa-network-wired text-4xl text-primary mb-4"></i>
+                        <h2 class="text-2xl font-heading font-bold text-dark mb-2">Network Solutions</h2>
+                        <p class="text-gray-600 mb-4 font-medium italic">Internet dropping out or insecure?</p>
+                        <ul class="text-gray-600 space-y-2 mb-6 flex-grow">
+                            <li>✓ WiFi setup and optimization</li>
+                            <li>✓ Network security config</li>
+                            <li>✓ Troubleshooting & drop-outs</li>
+                        </ul>
+                        <div class="border-t border-gray-100 pt-4 mb-4">
+                            <span class="text-sm text-gray-500">Starting at</span>
+                            <span class="text-2xl font-bold text-dark ml-2">KES 2,000</span>
+                        </div>
+                        <button onclick="navigate('contact')"
+                            class="w-full bg-secondary hover:bg-secondaryHover text-white py-3 rounded-lg font-bold transition">Get
+                            Instant Quote</button>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-8 flex flex-col h-full relative">
+                        <div
+                            class="absolute top-4 right-4 bg-yellow-100 text-yellow-800 text-xs font-bold px-2 py-1 rounded flex items-center">
+                            ⭐ 4.9/5 (315 Reviews)
+                        </div>
+                        <i class="fa-solid fa-database text-4xl text-primary mb-4"></i>
+                        <h2 class="text-2xl font-heading font-bold text-dark mb-2">Data Recovery</h2>
+                        <p class="text-gray-600 mb-4 font-medium italic">Accidentally deleted important files?</p>
+                        <ul class="text-gray-600 space-y-2 mb-6 flex-grow">
+                            <li>✓ Dead hard drive recovery</li>
+                            <li>✓ Accidental deletion restoration</li>
+                            <li>✓ Backup solutions</li>
+                        </ul>
+                        <div class="border-t border-gray-100 pt-4 mb-4">
+                            <span class="text-sm text-gray-500">Starting at</span>
+                            <span class="text-2xl font-bold text-dark ml-2">KES 5,000</span>
+                        </div>
+                        <button onclick="navigate('contact')"
+                            class="w-full bg-secondary hover:bg-secondaryHover text-white py-3 rounded-lg font-bold transition">Get
+                            Instant Quote</button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md overflow-hidden mb-16">
+                    <div class="p-8 text-center bg-dark text-white">
+                        <h3 class="text-2xl font-heading font-bold">Why Choose Good Shepherd?</h3>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-gray-100 text-gray-700">
+                                    <th class="p-4 border-b">Feature</th>
+                                    <th class="p-4 border-b bg-blue-50 text-primary font-bold text-lg"><i
+                                            class="fa-solid fa-crown text-warning mr-2"></i>Good Shepherd</th>
+                                    <th class="p-4 border-b">Big Box Stores</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="p-4 border-b font-medium">Diagnostic Fee</td>
+                                    <td class="p-4 border-b bg-blue-50 font-bold text-secondary">FREE</td>
+                                    <td class="p-4 border-b text-gray-500">$99.99+</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 border-b font-medium">Average Turnaround</td>
+                                    <td class="p-4 border-b bg-blue-50 font-bold text-dark">2-4 Hours (Same Day)</td>
+                                    <td class="p-4 border-b text-gray-500">5-7 Days</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 border-b font-medium">Warranty</td>
+                                    <td class="p-4 border-b bg-blue-50 font-bold text-dark">30-Days Included</td>
+                                    <td class="p-4 border-b text-gray-500">14-Days or None</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="page-about" class="page-section hidden py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h1 class="text-4xl md:text-5xl font-heading font-bold text-dark mb-4">Why 2,000+ Customers Trust Us
+                    </h1>
+                    <p class="text-xl text-gray-600">Built on Trust, Backed by Expertise.</p>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 text-center">
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-3xl font-bold text-primary mb-2">15+</h3>
+                        <p class="text-gray-600">Years in Business</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-3xl font-bold text-primary mb-2">10k+</h3>
+                        <p class="text-gray-600">Repairs Completed</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-3xl font-bold text-primary mb-2">98%</h3>
+                        <p class="text-gray-600">First-Time Fix Rate</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-3xl font-bold text-primary mb-2">$2M+</h3>
+                        <p class="text-gray-600">Data Recovered</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-12 items-center mb-20">
+                    <div class="md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Founder" class="rounded-xl shadow-lg">
+                    </div>
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl font-heading font-bold mb-6">We fix computers. We also fix frustration.</h2>
+                        <p class="text-gray-600 mb-4 text-lg leading-relaxed">
+                            Back in 2009, we noticed a major problem in the IT repair industry: lack of transparency.
+                            Big box stores were charging exorbitant diagnostic fees and making customers wait weeks for
+                            basic repairs.
+                        </p>
+                        <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+                            Good Shepherd Computers was built to change that. Our mission is simple: provide expert,
+                            lightning-fast computer repair with completely transparent pricing. When you bring your
+                            device to us, you're not just a ticket number—you're a neighbor we want to build a long-term
+                            relationship with.
+                        </p>
+                        <div class="flex gap-4">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Microsoft_Partner_logo.svg"
+                                alt="Microsoft Partner" class="h-10 opacity-70 grayscale">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
+                                alt="Apple Expert" class="h-10 opacity-70 grayscale">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-pricing" class="page-section hidden py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h1 class="text-4xl md:text-5xl font-heading font-bold text-dark mb-4">Transparent Pricing. No
+                        Surprises.</h1>
+                    <p class="text-xl text-gray-600">We believe in fair, honest pricing. Free diagnostic so you know the
+                        cost before we start. If we can't fix it, you don't pay.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 max-w-6xl mx-auto">
+                    <div class="border border-gray-200 rounded-2xl p-8 hover:shadow-xl transition flex flex-col">
+                        <h3 class="text-2xl font-bold text-dark mb-2">Basic Fix</h3>
+                        <p class="text-gray-500 mb-6">Perfect for minor tune-ups and single issues.</p>
+                        <div class="mb-6"><span class="text-4xl font-bold text-dark">KES 2,000</span><span
+                                class="text-gray-500">/starting</span></div>
+                        <ul class="space-y-4 mb-8 flex-grow text-gray-600">
+                            <li class="flex items-start"><i class="fa-solid fa-check text-secondary mt-1 mr-2"></i> Free
+                                Diagnostic</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-secondary mt-1 mr-2"></i>
+                                Single repair focus</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-secondary mt-1 mr-2"></i>
+                                30-day warranty</li>
+                        </ul>
+                        <button onclick="navigate('contact')"
+                            class="w-full py-3 px-4 border-2 border-primary text-primary font-bold rounded-lg hover:bg-blue-50 transition">Book
+                            Now</button>
+                    </div>
+
+                    <div
+                        class="border-2 border-primary rounded-2xl p-8 shadow-xl relative transform md:-translate-y-4 flex flex-col bg-white z-10">
+                        <div
+                            class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary text-white px-4 py-1 rounded-full text-sm font-bold uppercase tracking-wide">
+                            Most Popular
+                        </div>
+                        <h3 class="text-2xl font-bold text-dark mb-2">Standard Optimization</h3>
+                        <p class="text-gray-500 mb-6">Complete system refresh and multiple repairs.</p>
+                        <div class="mb-6"><span class="text-4xl font-bold text-dark">KES 4,500</span><span
+                                class="text-gray-500">/starting</span></div>
+                        <ul class="space-y-4 mb-8 flex-grow text-gray-600">
+                            <li class="flex items-start"><i class="fa-solid fa-check text-secondary mt-1 mr-2"></i>
+                                Priority Same-Day Scheduling</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-secondary mt-1 mr-2"></i>
+                                Virus Removal & Tune-up</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-secondary mt-1 mr-2"></i>
+                                Hardware Cleaning</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-secondary mt-1 mr-2"></i>
+                                60-day warranty</li>
+                        </ul>
+                        <button onclick="navigate('contact')"
+                            class="w-full py-3 px-4 bg-primary text-white font-bold rounded-lg hover:bg-blue-700 transition shadow-lg">Get
+                            Free Diagnostic Now</button>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-2xl p-8 hover:shadow-xl transition flex flex-col">
+                        <h3 class="text-2xl font-bold text-dark mb-2">Premium Shield</h3>
+                        <p class="text-gray-500 mb-6">Unlimited support for peace of mind.</p>
+                        <div class="mb-6"><span class="text-4xl font-bold text-dark">KES 7,200</span><span
+                                class="text-gray-500">/year</span></div>
+                        <ul class="space-y-4 mb-8 flex-grow text-gray-600">
+                            <li class="flex items-start"><i class="fa-solid fa-check text-secondary mt-1 mr-2"></i>
+                                Unlimited remote support</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-secondary mt-1 mr-2"></i>
+                                24-hour priority response</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-secondary mt-1 mr-2"></i>
+                                Included Antivirus software</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-secondary mt-1 mr-2"></i>
+                                Loaner device availability</li>
+                        </ul>
+                        <button onclick="navigate('contact')"
+                            class="w-full py-3 px-4 border-2 border-primary text-primary font-bold rounded-lg hover:bg-blue-50 transition">Call
+                            for Custom Quote</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-portfolio" class="page-section hidden py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h1 class="text-4xl font-heading font-bold text-dark mb-4">Real Problems. Real Solutions. Real
+                        Results.</h1>
+                    <p class="text-xl text-gray-600">See how we've saved businesses and individuals from digital
+                        disasters.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                        <div class="bg-accent text-white p-4 font-bold text-lg">
+                            <i class="fa-solid fa-fire-extinguisher mr-2"></i> Data Recovery Emergency
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold mb-4">"Client's laptop died – losing 10 years of business
+                                data"</h3>
+                            <div class="mb-4 text-gray-600">
+                                <strong class="text-dark block mb-1">The Challenge:</strong> A local accounting firm's
+                                primary laptop suffered a massive motherboard failure right before tax season. No recent
+                                backups.
+                            </div>
+                            <div class="mb-4 text-gray-600">
+                                <strong class="text-dark block mb-1">Our Solution:</strong> Performed clean-room data
+                                extraction from the fused SSD, bypassing hardware locks to recover the raw file system
+                                within 12 hours.
+                            </div>
+                            <div class="bg-green-50 p-4 rounded-lg mt-6">
+                                <strong class="text-secondary block mb-2">The Results:</strong>
+                                <ul class="text-sm font-medium text-gray-700 space-y-1">
+                                    <li>✓ 100% of tax files recovered</li>
+                                    <li>✓ Laptop fully replaced & setup in 24 hours</li>
+                                    <li>✓ "Peace of mind priceless"</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                        <div class="bg-primary text-white p-4 font-bold text-lg">
+                            <i class="fa-solid fa-rocket mr-2"></i> Speed Optimization
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold mb-4">"It took 20 minutes just to open an email."</h3>
+                            <div class="mb-4 text-gray-600">
+                                <strong class="text-dark block mb-1">The Challenge:</strong> A design agency's editing
+                                machines were crawling, crippling productivity and causing missed deadlines.
+                            </div>
+                            <div class="mb-4 text-gray-600">
+                                <strong class="text-dark block mb-1">Our Solution:</strong> Conducted a full diagnostic.
+                                Upgraded mechanical HDDs to NVMe SSDs, doubled RAM, and stripped deep-rooted malware.
+                            </div>
+                            <div class="bg-green-50 p-4 rounded-lg mt-6">
+                                <strong class="text-secondary block mb-2">The Results:</strong>
+                                <ul class="text-sm font-medium text-gray-700 space-y-1">
+                                    <li>✓ Boot time reduced from 8 mins to 15 seconds</li>
+                                    <li>✓ $4,000 saved vs buying new machines</li>
+                                    <li>✓ 98% performance increase</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-blog" class="page-section hidden py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h1 class="text-4xl font-heading font-bold text-dark mb-4">Computer Tips, Tricks & Industry News
+                    </h1>
+                    <p class="text-xl text-gray-600">Expert advice to keep your computer running smoothly.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition">
+                        <img src="https://images.unsplash.com/photo-1555680202-c86f0e12f086?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Motherboard" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <span class="text-xs font-bold text-primary uppercase tracking-wider">Performance</span>
+                            <h3 class="text-xl font-bold mt-2 mb-3 leading-tight">Why Your Computer Is Running Slow (And
+                                How to Fix It)</h3>
+                            <p class="text-gray-600 text-sm mb-4">Discover the top 5 hidden culprits eating up your RAM
+                                and slowing down your daily workflow...</p>
+                            <a href="#" class="text-secondary font-bold hover:text-secondaryHover">Read More &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition">
+                        <img src="https://images.unsplash.com/photo-1563206767-5b18f218e8de?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Hacker code" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <span class="text-xs font-bold text-primary uppercase tracking-wider">Security</span>
+                            <h3 class="text-xl font-bold mt-2 mb-3 leading-tight">Ransomware Prevention: A Complete 2024
+                                Guide</h3>
+                            <p class="text-gray-600 text-sm mb-4">Are your personal files truly safe? Learn the simple
+                                steps to block ransomware before it strikes...</p>
+                            <a href="#" class="text-secondary font-bold hover:text-secondaryHover">Read More &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition">
+                        <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Broken laptop" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <span class="text-xs font-bold text-primary uppercase tracking-wider">Hardware</span>
+                            <h3 class="text-xl font-bold mt-2 mb-3 leading-tight">5 Signs Your Hard Drive Is About to
+                                Fail</h3>
+                            <p class="text-gray-600 text-sm mb-4">Hear clicking noises? Experiencing random crashes?
+                                Your data might be at severe risk...</p>
+                            <a href="#" class="text-secondary font-bold hover:text-secondaryHover">Read More &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-contact" class="page-section hidden py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h1 class="text-4xl md:text-5xl font-heading font-bold text-dark mb-4">Get in Touch – Let's Fix Your
+                        Problem</h1>
+                    <p class="text-xl text-gray-600">Schedule This Week – Get Free System Optimization ($150 value)</p>
+                </div>
+
+                <div class="flex flex-col lg:flex-row gap-12">
+                    <div class="lg:w-1/3">
+                        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 mb-8">
+                            <h3 class="text-2xl font-bold mb-6 border-b pb-4">Reach Us Quickly</h3>
+
+                            <div class="flex items-start mb-6">
+                                <div
+                                    class="w-12 h-12 bg-blue-50 text-primary rounded-full flex items-center justify-center text-xl shrink-0">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <p class="font-bold text-lg text-dark">Call Us</p>
+                                    <a href="tel:+254729975688" class="text-primary hover:underline text-lg">+254 729
+                                        975 688</a>
+                                    <p class="text-sm text-gray-500 mt-1">Avail 8am-6pm. Avg wait: 2 mins</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start mb-6">
+                                <div
+                                    class="w-12 h-12 bg-green-50 text-secondary rounded-full flex items-center justify-center text-xl shrink-0">
+                                    <i class="fa-solid fa-comments"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <p class="font-bold text-lg text-dark">Live Chat</p>
+                                    <p class="text-gray-600">Response within 30 seconds</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div
+                                    class="w-12 h-12 bg-gray-100 text-gray-600 rounded-full flex items-center justify-center text-xl shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <p class="font-bold text-lg text-dark">Location</p>
+                                    <p class="text-gray-600">NAIROBI CBD TAVETA ROAD OFF ACCRA ROAD</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-dark text-white p-6 rounded-xl">
+                            <h4 class="font-bold text-lg mb-3">Our Guarantees</h4>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li><i class="fa-solid fa-shield-check text-secondary mr-2"></i> 100% satisfaction
+                                    guarantee</li>
+                                <li><i class="fa-solid fa-shield-check text-secondary mr-2"></i> Free diagnostic – no
+                                    obligation</li>
+                                <li><i class="fa-solid fa-shield-check text-secondary mr-2"></i> Transparent pricing
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="lg:w-2/3">
+                        <div class="bg-white p-8 md:p-10 rounded-xl shadow-lg border border-gray-100 relative">
+                            <div
+                                class="absolute top-0 right-0 bg-accent text-white px-4 py-1 rounded-bl-lg rounded-tr-xl font-bold text-sm">
+                                ⚡ Same-Day Service Available
+                            </div>
+                            <h2 class="text-3xl font-heading font-bold mb-6">Request Free Diagnostic</h2>
+                            <form id="contact-form" onsubmit="submitForm(event)" class="space-y-6">
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">Full Name <span
+                                            class="text-accent">*</span></label>
+                                    <input type="text" required
+                                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary transition outline-none"
+                                        placeholder="John Doe">
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label class="block text-sm font-semibold text-gray-700 mb-2">Phone Number <span
+                                                class="text-accent">*</span></label>
+                                        <input type="tel" required
+                                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary transition outline-none"
+                                            placeholder="(+254) 729 975 688">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold text-gray-700 mb-2">Email Address
+                                            <span class="text-accent">*</span></label>
+                                        <input type="email" required
+                                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary transition outline-none"
+                                            placeholder="john@example.com">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">What do you need help
+                                        with?</label>
+                                    <select
+                                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary transition outline-none bg-white">
+                                        <option>General Computer Repair</option>
+                                        <option>Virus / Malware Removal</option>
+                                        <option>Data Recovery</option>
+                                        <option>Network Solutions</option>
+                                        <option>Custom PC Build</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">Brief
+                                        Description</label>
+                                    <textarea rows="3"
+                                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary transition outline-none"
+                                        placeholder="My laptop won't turn on..."></textarea>
+                                </div>
+                                <button type="submit"
+                                    class="w-full bg-secondary hover:bg-secondaryHover text-white py-4 rounded-lg font-bold text-lg shadow-cta transition transform hover:-translate-y-0.5">
+                                    Get Free Diagnostic
+                                </button>
+                                <p class="text-center text-sm text-gray-500 mt-4"><i
+                                        class="fa-solid fa-lock text-gray-400 mr-1"></i> We'll respond within 2 hours.
+                                    No hidden fees.</p>
+                            </form>
+
+                            <div id="form-success"
+                                class="hidden absolute inset-0 bg-white rounded-xl flex flex-col items-center justify-center p-8 text-center z-10">
+                                <div
+                                    class="w-20 h-20 bg-green-100 text-secondary rounded-full flex items-center justify-center text-4xl mb-6">
+                                    <i class="fa-solid fa-check"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-dark mb-2">Request Received!</h3>
+                                <p class="text-gray-600 mb-6">Thank you. One of our expert technicians will call you
+                                    within 30 minutes to confirm your appointment.</p>
+                                <button onclick="resetForm()" class="text-primary font-semibold hover:underline">Send
+                                    another request</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-white border-t border-gray-100">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-heading font-bold text-center mb-10">Common Questions (Answered Honestly)</h2>
+
+                <div class="space-y-4">
+                    <div class="border border-gray-200 rounded-lg bg-gray-50 overflow-hidden">
+                        <button
+                            class="faq-toggle w-full px-6 py-4 text-left font-bold text-lg flex justify-between items-center focus:outline-none">
+                            How much will my repair cost?
+                            <i class="fa-solid fa-chevron-down text-primary transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer px-6 pb-0 text-gray-600">
+                            <p class="pb-4">Most computer repairs range from KES 2,000-7,200, depending on the issue.
+                                We provide
+                                a FREE diagnostic first, so you know the exact cost before we start. Zero surprises. We
+                                won't proceed with any work until you approve the price.</p>
+                        </div>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-lg bg-gray-50 overflow-hidden">
+                        <button
+                            class="faq-toggle w-full px-6 py-4 text-left font-bold text-lg flex justify-between items-center focus:outline-none">
+                            How long will it take?
+                            <i class="fa-solid fa-chevron-down text-primary transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer px-6 pb-0 text-gray-600">
+                            <p class="pb-4">Most repairs are completed same-day. Our average turnaround time is 2-4
+                                hours for common issues like virus removal or speed optimization. Hardware replacements
+                                may take longer if specific parts need to be ordered.</p>
+                        </div>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-lg bg-gray-50 overflow-hidden">
+                        <button
+                            class="faq-toggle w-full px-6 py-4 text-left font-bold text-lg flex justify-between items-center focus:outline-none">
+                            Will I lose my data?
+                            <i class="fa-solid fa-chevron-down text-primary transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer px-6 pb-0 text-gray-600">
+                            <p class="pb-4">Data safety is our #1 priority. We have a 99% data recovery success rate and
+                                always ensure your files are backed up or protected before we perform any major system
+                                repairs. Your family photos and business files are safe with us.</p>
+                        </div>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-lg bg-gray-50 overflow-hidden">
+                        <button
+                            class="faq-toggle w-full px-6 py-4 text-left font-bold text-lg flex justify-between items-center focus:outline-none">
+                            What if you can't fix it?
+                            <i class="fa-solid fa-chevron-down text-primary transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer px-6 pb-0 text-gray-600">
+                            <p class="pb-4">We guarantee success. If we cannot fix your problem, you do not pay for the
+                                repair. It's our "No Fix, No Fee" policy.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-dark text-gray-300 py-12 border-t-4 border-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <div class="flex items-center mb-4">
+                    <i class="fa-solid fa-shield-halved text-primary text-2xl mr-2"></i>
+                    <span class="font-heading font-bold text-xl text-white">Good Shepherd</span>
+                </div>
+                <p class="text-sm mb-4">Expert technicians. Transparent pricing. 100% satisfaction guarantee.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i
+                            class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i
+                            class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold mb-4">Quick Links</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" onclick="navigate('home')" class="hover:text-primary transition">Home</a></li>
+                    <li><a href="#" onclick="navigate('services')" class="hover:text-primary transition">Services</a>
+                    </li>
+                    <li><a href="#" onclick="navigate('about')" class="hover:text-primary transition">About Us</a></li>
+                    <li><a href="#" onclick="navigate('pricing')" class="hover:text-primary transition">Pricing</a></li>
+                    <li><a href="#" onclick="navigate('contact')" class="hover:text-primary transition">Contact</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold mb-4">Services</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" onclick="navigate('services')" class="hover:text-primary transition">Computer
+                            Repair</a></li>
+                    <li><a href="#" onclick="navigate('services')" class="hover:text-primary transition">Data
+                            Recovery</a></li>
+                    <li><a href="#" onclick="navigate('services')" class="hover:text-primary transition">Virus
+                            Removal</a></li>
+                    <li><a href="#" onclick="navigate('services')" class="hover:text-primary transition">Network
+                            Setup</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold mb-4">Contact</h4>
+                <ul class="space-y-2 text-sm mb-4">
+                    <li><i class="fa-solid fa-phone mr-2 text-primary"></i> +254 729 975 688</li>
+                    <li><i class="fa-solid fa-envelope mr-2 text-primary"></i> help@goodshepherd.com</li>
+                    <li><i class="fa-solid fa-location-dot mr-2 text-primary"></i> NAIROBI CBD TAVETA ROAD OFF ACCRA
+                        ROAD</li>
+                </ul>
+                <button onclick="navigate('contact')"
+                    class="bg-primary hover:bg-blue-600 text-white w-full py-2 rounded text-sm font-bold transition">Get
+                    Free Quote</button>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-gray-800 text-sm text-center">
+            <p>&copy; 2024 Good Shepherd Computers. All rights reserved. | <a href="#" class="hover:underline">Privacy
+                    Policy</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // SPA Navigation Logic
+        function navigate(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-section').forEach(el => {
+                el.classList.remove('active');
+                setTimeout(() => el.classList.add('hidden'), 50); // slight delay for smooth disappearance
+            });
+
+            // Show target page
+            const target = document.getElementById('page-' + pageId);
+            target.classList.remove('hidden');
+            setTimeout(() => target.classList.add('active'), 50);
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        function closeMobileMenu() {
+            mobileMenu.classList.add('hidden');
+        }
+
+        // FAQ Accordion Logic
+        document.querySelectorAll('.faq-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const icon = button.querySelector('i');
+
+                // Toggle open class
+                answer.classList.toggle('open');
+
+                // Rotate icon
+                if (answer.classList.contains('open')) {
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            });
+        });
+
+        // Open first FAQ by default (Conversion optimization requirement)
+        window.addEventListener('DOMContentLoaded', () => {
+            const firstFaqBtn = document.querySelector('.faq-toggle');
+            if (firstFaqBtn) firstFaqBtn.click();
+        });
+
+        // Form Submission Mock
+        function submitForm(e) {
+            e.preventDefault();
+            document.getElementById('contact-form').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('form-success').classList.remove('hidden');
+            }, 300);
+        }
+
+        function resetForm() {
+            document.getElementById('contact-form').reset();
+            document.getElementById('form-success').classList.add('hidden');
+            document.getElementById('contact-form').style.opacity = '1';
+        }
+    </script>
+</body>
+
+</html>
